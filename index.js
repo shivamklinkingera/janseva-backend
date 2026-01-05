@@ -1,14 +1,11 @@
-const express = require('express');
-const app = express();
 
-const PORT = 3000;
+const app = require('./src/app');
+const dotenv = require('dotenv');
 
-app.use(express.json());
+dotenv.config();
 
-app.get('/', (req, res) => {
-  res.send('Express backend running 🚀');
-});
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
